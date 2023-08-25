@@ -1,0 +1,14 @@
+El sitio web se dejo completo con contraseña, solo se puede acceder si esta logeado o se registra
+el index.html esta direccionado a 127.0.0.1:8000 pero solo se puede leer en la pagina de inicio si se esta logeado
+
+hay 3 usuarios
+user:admin
+pass:admin
+
+user:iparada
+pass:SitioWeb2
+puede visualizar catalogo y agregar vehiculos
+
+User:jvillarroel
+pass:SitioWeb2
+solo puede ver listado, al igual que cualquier usuario que se registre

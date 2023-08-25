@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    {% if user.is_authenticated %}
+
+    <div class="addform">
+        <h3>Ingresar Vehiculo</h3>
+        <form method ="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>Marca</label>
+                <br>
+                {{ form.marca }}
+            </div>
+            <div class="form-group">
+                <label>Modelo</label>
+                <br>
+                {{ form.modelo }}
+            </div>
+            <div class="form-group">
+                <label>Serial Carroceria</label>
+                <br>
+                {{ form.serial_carroceria }}
+            </div>
+            <div class="form-group">
+                <label>Serial Motor:</label>
+                <br>
+                {{ form.serial_motor }}
+            </div>
+            <div class="form-group">
+                <label>Categoria</label>
+                <br>
+                {{ form.categoria }}
+            </div>
+            <div class="form-group">
+                <label>Precio</label>
+                <br>
+                {{ form.precio }}
+            </div>
+            <input type="submit" class="btn btn-primary"></input>
+        </form>
+    </div>
+    {% else %}
+    <h1>Usuario no registrado, no tienes acceso al registro</h1>
+    {% endif %}
+{% endblock %}
+

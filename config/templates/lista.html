@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block content %}
+<div class="container py-5" id="vehiculo-list">
+    {% if user.is_authenticated %}
+    <div class="title py-3">
+        <h1>Listado de Vehículos</h1>
+    </div>
+    <div class="card" id="card-list">
+        <table class="table table-hover text-center table-responsive-sm">
+            <thead>
+                <tr>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Serial Carroceria</th>
+                    <th>Serial Motor</th>
+                    <th>Categoria</th>
+                    <th>Precio</th>
+                    <th>Condición de Precio</th>
+                </tr>
+            </thead>
+        {% if lista_vehiculos %}
+            {% for item in lista_vehiculos %}
+            <tbody>
+                <tr>
+                    <th>{{item.marca}}</th>
+                    <td>{{item.modelo}}</td>
+                    <td>{{item.serial_carroceria}}</td>
+                    <td>{{item.serial_motor}}</td>
+                    <td>{{item.categoria}}</td>
+                    <td>{{item.precio}}</td>
+                    <td>
+                        {% if item.precio > 30000 %}
+                            Alto
+                        {% elif item.precio > 10000 and item.precio <= 30000 %}
+                            Medio
+                        {% elif item.precio <= 10000 %}
+                            Bajo
+                        {% else %}
+                            Valor inválido
+                        {% endif %}
+                    </td>
+
+                </tr>
+            </tbody>
+            {% endfor %}
+        {% else %}
+            <h1>No tengo información de vehículos</h1>
+        {% endif %}
+        </table>
+    </div>
+    {% else %}
+        <h1>Usuario no registrado, no tienes acceso al listado</h1>
+        {% endif %}
+</div> 
+{% endblock %}
